@@ -139,3 +139,19 @@ class BrowserManager:
             self.page.bring_to_front()
         except Exception:
             pass
+
+
+class BorrowedBrowser:
+    """Repassa ao motor um navegador já aberto (com o login manual feito) sem fechá-lo no fim do lote.
+
+    Deve ser usado na mesma thread que criou o navegador (exigência do Playwright síncrono).
+    """
+
+    def __init__(self, inner: BrowserManager):
+        self._inner = inner
+
+    def __getattr__(self, name):
+        return getattr(self._inner, name)
+
+    def close(self) -> None:
+        pass

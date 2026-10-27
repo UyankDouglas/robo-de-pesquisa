@@ -1,0 +1,28 @@
+{
+  "base_url": "https://phoenix2businesspcs.timbrasil.com.br/phoenix2Business/",
+  "browser_channel": "msedge",
+  "headless": false,
+  "interval_seconds": 3.0,
+  "max_per_minute": 0,
+  "timeout_seconds": 45.0,
+  "max_retries": 2,
+  "backoff_base_seconds": 5.0,
+  "backoff_max_seconds": 60.0,
+  "max_paginas": 50,
+  "persist_session": true,
+  "autosave_every": 5,
+  "output_dir": "output/phoenix",
+  "status": {
+    "em_andamento": ["Em andamento"],
+    "falha_parcial_portada": ["Falha parcial / portada"],
+    "em_conflito": ["Em conflito"],
+    "motivo_recusa_vazio": ["", "-", "--", "—"],
+    "texto_fila_em_andamento": "Em andamento"
+  },
+  "match": {
+    "strip_ddi_55": true,
+    "strip_trunk_zero": false,
+    "usar_numero_temporario": false,
+    "multiplos_bilhetes": "mais_recente"
+  }
+}

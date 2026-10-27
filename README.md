@@ -5,8 +5,13 @@ um site (ou API) configurado, extrai os resultados e gera uma planilha de saída
 (CustomTkinter), modo sem interface para o Agendador de Tarefas do Windows, histórico em SQLite e
 retomada de execuções interrompidas.
 
-> O site real ainda não foi definido. O projeto vem com um **site local de demonstração** (dados
-> fictícios) e com três formas de integrar o site real — veja [Como adicionar um site](#como-adicionar-um-site).
+> **PHOENIX BOT (TIM Phoenix2 Business)** — a aplicação específica para consultar bilhetes de
+> portabilidade por CNPJ e gerar EM_ANDAMENTO / FALHA_PARCIAL_PORTADA / EM_CONFLITO está documentada em
+> [docs/PHOENIX.md](docs/PHOENIX.md) (`run_phoenix.bat` ou `PhoenixBot.exe`). Ela reaproveita o motor,
+> a retomada, a sessão protegida e os logs deste projeto.
+>
+> O robô genérico vem com um **site local de demonstração** (dados fictícios) e com três formas de
+> integrar outros sites — veja [Como adicionar um site](#como-adicionar-um-site).
 
 ---
 

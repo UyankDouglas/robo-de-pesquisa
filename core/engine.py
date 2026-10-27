@@ -87,6 +87,7 @@ class ProcessingEngine:
         browser_factory: Callable[[RunSettings, dict | None], BrowserManager] = default_browser_factory,
         session_store: SessionStore | None = None,
         export_filter: str = "all",
+        exporter: Callable[[Repository, int], Path | None] | None = None,
         lock_dir: Path | None = None,
         clock: Callable[[], float] = time.monotonic,
     ):
@@ -98,6 +99,7 @@ class ProcessingEngine:
         self.browser_factory = browser_factory
         self.sessions = session_store or SessionStore()
         self.export_filter = export_filter
+        self.exporter = exporter  # None = planilha de resultados padrão (excel.exporter)
         self.lock_dir = lock_dir
         self.clock = clock
 
@@ -253,8 +255,8 @@ class ProcessingEngine:
     def _login_flow(self, repo: Repository, adapter: BaseAdapter) -> None:
         while True:
             instructions = adapter.begin_login() if self.interactive else (
-                f"O site '{adapter.display_name}' exige login. Salve a sessão antes com "
-                f"'cli.py login --adapter {adapter.id}' ou execute pela interface."
+                f"O site '{adapter.display_name}' exige login e não há operador neste modo. Faça o login pela "
+                f"interface ou salve a sessão antes (comando 'login' do modo sem interface)."
             )
             self._request_operator(repo, "login", instructions)
             if adapter.is_logged_in():
@@ -275,18 +277,21 @@ class ProcessingEngine:
         if settings is None:
             return
         try:
-            run = repo.get_run(self.run_id)
-            target = Path(run.output_file) if run.output_file else default_output_path(run, output_dir_for(settings))
-            labels = adapter.field_labels() if adapter else self._field_labels
             started = self.clock()
-            saved = export_run(repo, self.run_id, target, self.export_filter, labels)
-            if not run.output_file:
-                repo.update_run(self.run_id, output_file=str(target))
+            if self.exporter is not None:
+                saved = self.exporter(repo, self.run_id)
+            else:
+                run = repo.get_run(self.run_id)
+                target = Path(run.output_file) if run.output_file else default_output_path(run, output_dir_for(settings))
+                labels = adapter.field_labels() if adapter else self._field_labels
+                saved = export_run(repo, self.run_id, target, self.export_filter, labels)
+                if not run.output_file:
+                    repo.update_run(self.run_id, output_file=str(target))
             self.output_path = saved
             self._since_save = 0
             self._last_save = self.clock()
             self._last_export_duration = self._last_save - started
-            self._emit("exported", path=str(saved))
+            self._emit("exported", path=str(saved) if saved else "")
         except Exception as exc:
             log.error("Não foi possível salvar o Excel agora (%s). Os resultados continuam salvos no banco.", exc)
 

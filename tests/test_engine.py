@@ -174,7 +174,9 @@ def test_autosave_during_processing(repo, db, tmp_path):
     run_id = _create(repo, tmp_path, [f"A{i}" for i in range(5)], autosave_every=2)
     saves = []
     _engine(db, run_id, FakeAdapter(delay=0.3), saves, interactive=False).run()
-    assert len([e for e in saves if e.kind == "exported"]) >= 3  # a cada 2 registros + final
+    kinds = [e.kind for e in saves]
+    last_item = max(i for i, k in enumerate(kinds) if k == "item_finished")
+    assert kinds.count("exported") >= 2 and kinds.index("exported") < last_item  # salva durante, não só no fim
 
 
 def test_autosave_is_throttled_when_export_is_slow(repo, db, tmp_path, monkeypatch):

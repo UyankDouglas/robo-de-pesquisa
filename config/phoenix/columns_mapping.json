@@ -1,0 +1,67 @@
+{
+  "versao": 1,
+  "planilha_referencia": "ESTEIRA ATIVAÇÃO para robo de pesquisa.xlsx",
+  "_explicacao": "Mapeamento por aba (letras de coluna). expected_headers é conferido a cada importação: se o cabeçalho mudar, a aba é recusada em vez de gravar na coluna errada. fila_atual null = a coluna 'Fila Atual' é criada só na planilha exportada.",
+  "abas": {
+    "AGOSTO TLVS": {
+      "header_row": 1, "cnpj": "D", "acesso": "G", "fila_atual": "AA", "numero_temporario": null,
+      "expected_headers": {"D": "CNPJ", "G": "Acesso", "AA": "fila atual"},
+      "note": "Coluna 'Número Temporário' (DB) contém texto, não números."
+    },
+    "SETEMBRO TLV": {
+      "header_row": 1, "cnpj": "D", "acesso": "G", "fila_atual": "AA", "numero_temporario": null,
+      "expected_headers": {"D": "CNPJ", "G": "Acesso", "AA": "fila atual"},
+      "note": "Coluna 'Número Temporário' (DC) contém texto, não números."
+    },
+    "OUTUBRO TLV": {
+      "header_row": 1, "cnpj": "D", "acesso": "G", "fila_atual": "Z", "numero_temporario": null,
+      "expected_headers": {"D": "CNPJ", "G": "Acesso", "Z": "fila atual"},
+      "note": "Z e AA têm o cabeçalho 'fila atual'. Z = status textual (alterada na cópia); AA = numérico (nunca alterada)."
+    },
+    "REENVIO BILHETE 2310": {
+      "header_row": 1, "cnpj": "D", "acesso": "G", "fila_atual": "Z", "numero_temporario": null,
+      "expected_headers": {"D": "CNPJ", "G": "Acesso", "Z": "fila atual"},
+      "note": "Z e AA têm o cabeçalho 'fila atual'. Linhas 2-67: Z texto e AA número. Linhas 68-180: Z vazia e texto em AA (colunas deslocadas) - essas linhas são sinalizadas para revisão."
+    },
+    "Ação AGOSTO": {
+      "header_row": 1, "cnpj": "D", "acesso": "G", "fila_atual": "Z", "numero_temporario": null,
+      "expected_headers": {"D": "CNPJ", "G": "Acesso", "Z": "fila atual"},
+      "note": ""
+    },
+    "OUTUBRO CSTV": {
+      "header_row": 1, "cnpj": "P", "acesso": "I", "fila_atual": null, "numero_temporario": "J",
+      "expected_headers": {"P": "CNPJ/CPF", "I": "Acesso", "J": "Temporário"},
+      "note": "Sem 'Fila Atual': criada apenas na exportação."
+    },
+    "SETEMBRO CSTV": {
+      "header_row": 1, "cnpj": "P", "acesso": "I", "fila_atual": null, "numero_temporario": "J",
+      "expected_headers": {"P": "CNPJ/CPF", "I": "Acesso", "J": "Temporário"},
+      "note": "Sem 'Fila Atual': criada apenas na exportação."
+    },
+    "AGOSTO CSTV": {
+      "header_row": 1, "cnpj": "P", "acesso": "I", "fila_atual": null, "numero_temporario": "J",
+      "expected_headers": {"P": "CNPJ/CPF", "I": "Acesso", "J": "Temporário"},
+      "note": "Sem 'Fila Atual': criada apenas na exportação."
+    },
+    "JULHO CSTV": {
+      "header_row": 1, "cnpj": "P", "acesso": "I", "fila_atual": null, "numero_temporario": "J",
+      "expected_headers": {"P": "CNPJ/CPF", "I": "Acesso", "J": "Temporário"},
+      "note": "Detectada automaticamente (não constava na tabela inicial)."
+    },
+    "JUNHO CSTV": {
+      "header_row": 1, "cnpj": "Q", "acesso": "J", "fila_atual": null, "numero_temporario": "K",
+      "expected_headers": {"Q": "CNPJ/CPF", "J": "Acesso", "K": "Temporário"},
+      "note": "Detectada automaticamente (não constava na tabela inicial)."
+    },
+    "Bate E Volta TLV": {
+      "header_row": 1, "cnpj": "C", "acesso": null, "fila_atual": "P", "numero_temporario": null,
+      "expected_headers": {"C": "cnpj", "P": "fila atual"},
+      "note": "A aba NÃO tem coluna com o número da linha ('acessos' é quantidade e 'Número Temporário' é texto). Sem número não há como relacionar CNPJ + Número a portar: as linhas vão para o relatório como 'sem número'."
+    },
+    "SETEMBRO TLVS": {
+      "header_row": 1, "cnpj": "C", "acesso": "F", "fila_atual": "U", "numero_temporario": null,
+      "expected_headers": {"C": "CNPJ", "F": "Acesso 1", "U": "fila atual"},
+      "note": "Aba oculta: só é processada se selecionada explicitamente."
+    }
+  }
+}

@@ -13,6 +13,7 @@ import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 
+import utils.xlsx_compat  # noqa: F401  (preserva números em colunas formatadas como data)
 from core.config import ImportOptions, resolve_path
 from core.models import ConfigError, ItemStatus
 from utils.validators import cell_to_text, normalize_identifier, validate_identifier

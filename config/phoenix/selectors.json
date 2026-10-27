@@ -1,0 +1,87 @@
+{
+  "_status": "Textos informados pelo operador; NÃO confirmados no HTML real. Confirme com 'phoenix_cli.py inspecionar' e registre o resultado em docs/PHOENIX.md.",
+  "login": {
+    "indicador_logado_texto": "Portabilidade",
+    "indicadores_pagina_login": [
+      "input[type=password]"
+    ],
+    "titulos_pagina_login": [
+      "Click Provider Link"
+    ],
+    "textos_sessao_expirada": [
+      "sessão expirada",
+      "sessao expirada",
+      "efetue o login",
+      "faça o login novamente"
+    ],
+    "textos_captcha": [
+      "captcha",
+      "não sou um robô",
+      "nao sou um robo"
+    ]
+  },
+  "menu": {
+    "portabilidade": "Portabilidade",
+    "acompanhamento": "Acompanhamento",
+    "status_solicitacoes": "Status Solicitações",
+    "espera_hover_ms": 400
+  },
+  "consulta": {
+    "titulo_tela": "Status das Solicitações",
+    "rotulo_tipo_consulta": "Tipo da Consulta",
+    "opcao_cnpj": "CNPJ",
+    "rotulo_valor": "Valor",
+    "rotulos_periodo": [
+      "Período inicial",
+      "Período final"
+    ],
+    "botao_pesquisar": "Pesquisar",
+    "texto_sem_resultado": "Nenhuma Solicitação foi encontrada.",
+    "textos_erro": [
+      "ocorreu um erro",
+      "erro inesperado"
+    ]
+  },
+  "resultados": {
+    "colunas_identificacao": [
+      "Razão Social",
+      "Status Solicitação"
+    ],
+    "colunas": [
+      "Razão Social",
+      "CNPJ",
+      "Data Solicitação",
+      "Tipo",
+      "Status Solicitação",
+      "Tipo Port In"
+    ],
+    "botao_detalhar": "Detalhar",
+    "textos_proxima_pagina": [
+      "Próxima",
+      "Próximo",
+      "Próxima página",
+      "»",
+      ">"
+    ]
+  },
+  "detalhe": {
+    "titulo": "Detalhes Solicitação",
+    "secao_bilhetes": "Bilhetes",
+    "colunas_identificacao": [
+      "Número a portar",
+      "Status do Bilhete"
+    ],
+    "colunas_bilhetes": {
+      "numero_portar": "Número a portar",
+      "bilhete": "Bilhete",
+      "numero_temporario": "Número Temporário",
+      "status_bilhete": "Status do Bilhete",
+      "autorizacao_doadora": "Autorização Doadora",
+      "autorizado_ea": "Autorizado pela EA",
+      "motivo_recusa": "Motivo Recusa",
+      "status_linha": "Status da Linha",
+      "motivo_falha": "Motivo da Falha"
+    },
+    "botao_voltar": "Voltar"
+  }
+}
