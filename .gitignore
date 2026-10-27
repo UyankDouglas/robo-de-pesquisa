@@ -1,0 +1,24 @@
+# Ambiente e caches
+.venv/
+.claude/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Dados do operador (planilhas, resultados, banco, sessões e logs)
+data/
+logs/*
+!logs/.gitkeep
+output/*
+!output/.gitkeep
+input/*
+!input/.gitkeep
+scheduled/
+config/*.json
+!config/example_config.json
+config/sites/*.json
+!config/sites/demo_declarativo.json
+
+# Build do executável
+build/
+dist/

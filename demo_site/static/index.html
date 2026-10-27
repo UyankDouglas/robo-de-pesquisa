@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consulta de Demonstração</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Consulta Pública de Demonstração</h1>
+    {{USER_BAR}}
+  </header>
+  <main>
+    <p class="hint">Site local com dados <strong>fictícios</strong>, usado para testar o Web Search Bot.
+      Experimente: <code>12345678000190</code>, <code>98765432000110</code>, <code>INSTAVEL-1</code>,
+      <code>ERRO-1</code>, <code>CAPTCHA-1</code>.</p>
+
+    <form id="search-form" data-testid="search-form" autocomplete="off">
+      <label for="q">Identificador (CNPJ, protocolo, código ou nome)</label>
+      <div class="row">
+        <input id="q" name="q" data-testid="search-input" placeholder="Digite o identificador">
+        <button type="submit" id="search-button" data-testid="search-button">Pesquisar</button>
+      </div>
+    </form>
+
+    <div id="captcha" data-testid="captcha" class="captcha" hidden>
+      <p><strong>Verificação humana necessária.</strong> Marque a caixa abaixo para continuar.</p>
+      <label><input type="checkbox" id="captcha-check" data-testid="captcha-checkbox"> Não sou um robô (demonstração)</label>
+      <button type="button" id="captcha-confirm" data-testid="captcha-confirm">Confirmar</button>
+    </div>
+
+    <section id="result" data-testid="result" data-state="idle" data-query="" aria-live="polite"></section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

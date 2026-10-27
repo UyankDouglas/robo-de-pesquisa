@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar - Consulta de Demonstração</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header><h1>Consulta Pública de Demonstração</h1></header>
+  <main>
+    <h2>Entrar</h2>
+    {{MESSAGE}}
+    <form method="post" action="/login" data-testid="login-form" class="login">
+      <label for="username">Usuário</label>
+      <input id="username" name="username" data-testid="login-user" autocomplete="username">
+      <label for="password">Senha</label>
+      <input id="password" name="password" type="password" data-testid="login-password" autocomplete="current-password">
+      <button type="submit" data-testid="login-submit">Entrar</button>
+    </form>
+    <p class="hint">Ambiente de demonstração: usuário <code>demo</code>, senha <code>demo123</code> (fictícios).</p>
+  </main>
+</body>
+</html>

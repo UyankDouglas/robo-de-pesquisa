@@ -1,0 +1,23 @@
+{
+  "id": "demo_declarativo",
+  "name": "Demonstração — site configurado por JSON",
+  "description": "Mesmo site local de demonstração, integrado apenas com este arquivo JSON (sem código Python).",
+  "search_url": "http://127.0.0.1:8765/",
+  "navigate_each_search": true,
+  "search_input": "[data-testid=search-input]",
+  "submit": "[data-testid=search-button]",
+  "result_selector": "[data-testid=result][data-state=found]",
+  "not_found_selector": "[data-testid=result][data-state=not-found]",
+  "error_selector": "[data-testid=result][data-state=error]",
+  "captcha_selector": "[data-testid=captcha]",
+  "fields": [
+    {"key": "nome", "label": "NOME / RAZÃO SOCIAL", "selector": "[data-field=nome]"},
+    {"key": "situacao", "label": "SITUAÇÃO CADASTRAL", "selector": "[data-field=situacao]"},
+    {"key": "data_registro", "label": "DATA DE REGISTRO", "selector": "[data-field=data_registro]"},
+    {"key": "municipio", "label": "MUNICÍPIO", "selector": "[data-field=municipio]"},
+    {"key": "uf", "label": "UF", "selector": "[data-field=uf]"}
+  ],
+  "login": {"required": false},
+  "min_interval_seconds": 0,
+  "demo_server": {"autostart": true, "require_login": false}
+}

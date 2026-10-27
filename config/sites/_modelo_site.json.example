@@ -1,0 +1,34 @@
+{
+  "_instrucoes": "Copie este arquivo para config/sites/<id>.json e preencha com os dados REAIS do site autorizado. Arquivos .example são ignorados. Use seletores estáveis (id, name, data-testid, aria-label). Teste com: python cli.py test-site --adapter <id> --query <valor>",
+
+  "id": "meu_site",
+  "name": "Nome que aparece na lista de sites",
+  "description": "Para que serve esta consulta",
+
+  "search_url": "PREENCHER: URL da página que contém o campo de pesquisa",
+  "search_url_template": null,
+  "navigate_each_search": true,
+  "wait_until": "domcontentloaded",
+
+  "search_input": "PREENCHER: seletor do campo de pesquisa (ex.: #campo, [name=documento], label=Documento)",
+  "submit": "PREENCHER: seletor do botão Pesquisar, ou null para pressionar Enter",
+
+  "result_selector": "PREENCHER: seletor do bloco que aparece quando há resultado",
+  "not_found_selector": "PREENCHER: seletor da mensagem de 'nenhum resultado' (ou null)",
+  "error_selector": null,
+  "captcha_selector": null,
+
+  "fields": [
+    {"key": "campo1", "label": "TÍTULO DA COLUNA NO EXCEL", "selector": "PREENCHER: seletor dentro do bloco de resultado"},
+    {"key": "campo2", "label": "OUTRA COLUNA", "selector": "PREENCHER", "attribute": null, "regex": null, "scope": "result"}
+  ],
+
+  "login": {
+    "required": false,
+    "url": null,
+    "logged_in_selector": null,
+    "login_page_selector": null
+  },
+
+  "min_interval_seconds": 0
+}

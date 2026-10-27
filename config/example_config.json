@@ -1,0 +1,37 @@
+{
+  "name": "Consulta agendada - demonstração",
+  "input": {
+    "file": "input/exemplo_entrada.xlsx",
+    "sheet": "Registros",
+    "column": "DOCUMENTO",
+    "header_row": null,
+    "start": null,
+    "end": null,
+    "zero_pad": null,
+    "validation": "none"
+  },
+  "site": {
+    "adapter": "demo",
+    "options": {}
+  },
+  "execution": {
+    "interval_seconds": 1.0,
+    "max_per_minute": 0,
+    "timeout_seconds": 30,
+    "max_retries": 3,
+    "backoff_base_seconds": 2,
+    "backoff_max_seconds": 60,
+    "headless": true,
+    "browser_channel": "msedge",
+    "persist_session": false,
+    "autosave_every": 10,
+    "autosave_seconds": 60,
+    "mask_identifiers_in_logs": false
+  },
+  "output": {
+    "dir": "output",
+    "filter": "all"
+  },
+  "resume": true,
+  "retry_errors_on_resume": false
+}
